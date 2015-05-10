@@ -1,0 +1,8 @@
+github.com/jrallison/go-workers
+github.com/astaxie/beego/orm
+github.com/go-sql-driver/mysql
+github.com/op/go-logging
+github.com/BurntSushi/toml
+
+github.com/PuerkitoBio/goquery
+github.com/djimenez/iconv-go

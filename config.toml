@@ -1,0 +1,5 @@
+[database]
+name = "sitemeta_development_golang"
+username = "root"
+password = ""
+port = 3306
