@@ -8,6 +8,7 @@ import (
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/op/go-logging"
+	"os"
 )
 
 var log *logging.Logger
@@ -42,7 +43,7 @@ func main() {
 
 	var config, err = common.LoadConfig(*path)
 	if err != nil {
-		panic(err)
+		os.Exit(1)
 	}
 
 	initDatabase(config)
