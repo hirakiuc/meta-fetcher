@@ -10,26 +10,26 @@ const RdfType string = "application/rdf+xml"
 
 // To convert to time.Time, see http://play.golang.org/p/JBi5Qu470_
 //
-type datetime time.Time
+type Datetime time.Time
 
-func (t *datetime) UnmarshalText(b []byte) error {
+func (t *Datetime) UnmarshalText(b []byte) error {
 	result, err := time.Parse("2015-01-18T15:03:59+09:00", string(b))
 	if err == nil {
-		*t = datetime(result)
+		*t = Datetime(result)
 		return nil
 	}
 
 	var t2 time.Time
 	err = t2.UnmarshalText(b)
 	if err == nil {
-		*t = datetime(t2)
+		*t = Datetime(t2)
 		return nil
 	}
 
 	return err
 }
 
-func (t datetime) Time() time.Time {
+func (t Datetime) Time() time.Time {
 	return (time.Time)(t)
 }
 
@@ -37,7 +37,7 @@ type FeedItem struct {
 	Title         string   `xml:"title"`
 	Link          string   `xml:"link"`
 	Description   string   `xml:"description"`
-	Date          datetime `xml:"http://purl.org/dc/elements/1.1/ date"`
+	Date          Datetime `xml:"http://purl.org/dc/elements/1.1/ date"`
 	Subject       string   `xml:"http://purl.org/dc/elements/1.1/ subject"`
 	Bookmarkcount int32    `xml:"http://www.hatena.ne.jp/info/xmlns# bookmarkcount"`
 }
