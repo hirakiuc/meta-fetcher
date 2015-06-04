@@ -7,14 +7,15 @@ import (
 )
 
 type Feed struct {
-	Id           int       `orm:"auto"`
-	Url          string    `orm:"size(255)"`
-	Type         string    `orm:"column(feed_type);size(255)"`
-	Label        string    `orm:"column(feed_label);size(255)"`
-	LastLoadedAt time.Time `orm:"column(last_loaded_at);type(datetime)"`
-	Enabled      bool      `orm:""`
-	CreatedAt    time.Time `orm:"column(created_at);auto_now_add;type(datetime)"`
-	UpdatedAt    time.Time `orm:"column(updated_at);auto_now;type(datetime)"`
+	Id           int         `orm:"auto"`
+	Url          string      `orm:"size(255)"`
+	Type         string      `orm:"column(feed_type);size(255)"`
+	Label        string      `orm:"column(feed_label);size(255)"`
+	LastLoadedAt time.Time   `orm:"column(last_loaded_at);type(datetime)"`
+	Enabled      bool        `orm:""`
+	CreatedAt    time.Time   `orm:"column(created_at);auto_now_add;type(datetime)"`
+	UpdatedAt    time.Time   `orm:"column(updated_at);auto_now;type(datetime)"`
+	FeedItems    []*FeedItem `orm:"reverse(many)"`
 }
 
 func init() {
